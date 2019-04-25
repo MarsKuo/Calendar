@@ -1,0 +1,33 @@
+< !DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <audio id="audio1" controls="controls">
+      <source src="https://www.w3schools.com/jsref/horse.ogg" type="audio/mp4">
+
+      Your browser does not support HTML5 video.
+    </audio>
+    <button onclick="getCurTime()" type="button">放聲音</button>
+    <button onclick="setCurTime()" type="button">關聲音</button>
+
+    <script>
+      myVid = document.getElementById("audio1");
+      function getCurTime() {
+        myVid.play();
+      }
+      function setCurTime() {
+        myVid.pause();
+        myVid.currentTime = 0;
+
+      } 
+    </script>
+  </body>
+
+  </html>

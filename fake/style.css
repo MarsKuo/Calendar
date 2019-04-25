@@ -1,0 +1,50 @@
+[v-cloak] {
+  display: none;
+}
+
+html {
+  text-align: center;
+}
+
+.calendar {
+  margin: 30px 0;
+}
+
+.weekDay,
+.week {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid #ddd;
+}
+
+.weekDay > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0%;
+          flex: 1 1 0%;
+  line-height: 30px;
+}
+
+.week {
+  border-right: 1px solid #ddd;
+}
+
+.week > div {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0%;
+          flex: 1 1 0%;
+  line-height: 30px;
+  height: 90px;
+  border-left: 1px solid #ddd;
+}
+
+.week > div::before {
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  position: absolute;
+  content: '31';
+  top: 0;
+  right: 0;
+  width: 30px;
+}
