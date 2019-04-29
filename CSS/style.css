@@ -34,7 +34,15 @@ html {
       border-left: 1px solid #ddd;
       border-bottom: 1px solid #ddd;
       position: absolute;
-      content: '31';
+      content: attr(data-date);
       top: 0;
       right: 0;
       width: 30px; }
+
+.today:before {
+  color: #fff;
+  background-color: #000; }
+
+.other {
+  color: #333;
+  background-color: #bbb; }

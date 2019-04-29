@@ -32,11 +32,18 @@
         <div>六</div>
       </div>
       <div class="week" v-for="i in 6">
-        <div class="day" v-for="j in 7"></div>
+        <div class="day" v-for="j in 7" :data-date="calendarMonth[(i-1)*7+(j-1)].date" :class="{
+          today:calendarMonth[(i-1)*7+(j-1)].year === today.year 
+          && calendarMonth[(i-1)*7+(j-1)].month === today.month
+          && calendarMonth[(i-1)*7+(j-1)].date === today.date,
+          other: calendarMonth[(i-1)*7+(j-1)].month !==calendar.month
+         }"></div>
+
+        <!-- calendarMonth[(i-1)*7+(j-1)]這個是行列轉換個數，陣列是0開始，數字是1開始 -->
       </div>
     </div>
   </div>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js"></script>
   <script src="./JS/all.js"></script>
 </body>
 

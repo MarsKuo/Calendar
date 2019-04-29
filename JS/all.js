@@ -44,6 +44,47 @@
           this.calendar.month = month;
         }
       }
+    },
+    computed: {
+      //第一次寫的方法，被合併至calendarFirstDay
+      // monthFirstDay() {
+      //   const date = new Date(this.calendar.year, this.calendar.month, 1)
+      //   return {
+      //     year: date.getFullYear(), //this.calendar.year
+      //     month: date.getMonth(), //this.calendar.month
+      //     date: date.getDate(), //1
+      //     day: date.getDay(),
+      //   }
+      // },\
+
+      //尋找整張日曆表的第一天
+      calendarFirstDay() {
+        //mdate是為了查這個月的第一天是星期幾
+        const mdate = new Date(this.calendar.year, this.calendar.month, 1)
+        //date是為了計算這個月的第一個星期日是哪一天
+        const date = new Date(this.calendar.year, this.calendar.month, 1 - mdate.getDay())
+        return {
+          year: date.getFullYear(), //this.calendar.year
+          month: date.getMonth(), //this.calendar.month
+          date: date.getDate(), //1
+          day: date.getDay(),
+        }
+      },
+      //繪製整張calendar
+      calendarMonth() {
+        const data = [];
+        let date;
+        for (let i = 0; i < 42; i++) {
+          date = new Date(this.calendarFirstDay.year, this.calendarFirstDay.month, this.calendarFirstDay.date + i)
+          data.push({
+            year: date.getFullYear(), //this.calendar.year
+            month: date.getMonth(), //this.calendar.month
+            date: date.getDate(), //1
+            day: date.getDay(),
+          })
+        }
+        return data;
+      }
     }
   })
 })(Vue)
